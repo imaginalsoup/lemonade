@@ -2627,12 +2627,12 @@ A list of additional subjects can also be pursued, to be delivered by mentors in
 max-width: 300px !important;
 }
 
-.close-button {
-	display: none;
+.close-button.show {
+	display: block;
 }
 
-.show-close-button {
-	display: block;
+.close-button {
+	display: none;
 }
 
 .burger-button.hide {
@@ -2649,21 +2649,22 @@ max-width: 300px !important;
 
 	burgerMenu.addEventListener('click',()=>{
 		burgerMenu.classList.toggle('mobile-nav-open');
-					document.querySelector('.burger-button').classList.toggle('hide')
-		document.querySelector('header').classList.toggle('ins-tile--open-menu')
-	document.querySelector('.close-button').classList.toggle('show-close-button');
+		document.querySelector('.burger-button').classList.toggle('hide');
+		document.querySelector('header').classList.toggle('ins-tile--open-menu');
+		document.querySelector('.close-button').classList.toggle('show');
 });
 
 document.querySelectorAll('.ins-header__sidebar-menu-link').forEach((item) => {
   item.addEventListener("click", () =>
 {
-			document.querySelector('header').classList.toggle('ins-tile--open-menu')
+		document.querySelector('header').classList.toggle('ins-tile--open-menu');
+		document.querySelector('.close-button').classList.remove('show');
+		document.querySelector('.burger-button').classList.remove('hide');
 })});
 
   document.querySelectorAll(".ins-accordion__item-wrap").forEach((item) => {
   item.querySelector(".ins-accordion__item-title").addEventListener("click", () => {
     item.classList.toggle("open");
-		
   });
 });
 
